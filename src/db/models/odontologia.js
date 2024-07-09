@@ -24,6 +24,11 @@ const OdontologiaSchema = {
     allowNull: false,
     field: 'correo_cotizante'
   },
+  numeroCotizante:{
+    type: DataTypes.BIGINT,
+    allowNull: false,
+    field: 'numero_cotizante'
+  },
   idBene1:{
     type:DataTypes.BIGINT,
     allowNull:false,

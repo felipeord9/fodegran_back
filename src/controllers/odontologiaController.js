@@ -54,6 +54,7 @@ const createOdontologia = async (req, res, next) => {
         idCotizante:body.cotizante.cedula,
         nameCotizante:body.cotizante.nombre,
         correoCotizante:body.cotizante.correo,
+        numeroCotizante:body.cotizante.numero,
         idBene1:body.datos.IdBene1,
         nameBene1:body.datos.DescBene1,
         fechaBene1:body.datos.fechaBene1,
