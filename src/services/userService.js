@@ -25,6 +25,18 @@ const findOne = async (id) => {
   return user
 }
 
+const findByUsername = async (username) => {
+  const user = await models.User.findOne({
+    where: {
+      username: username
+    }
+  })
+
+  if(!user) throw boom.notFound('Usuario no encontrado')
+
+  return user
+}
+
 const findByEmail = async (email) => {
   const user = await models.User.findOne({
     where: { email }
@@ -62,6 +74,7 @@ module.exports = {
   find,
   findOne,
   findByEmail,
+  findByUsername,
   create,
   update,
   remove

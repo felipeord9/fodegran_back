@@ -84,6 +84,7 @@ const createOdontologia = async (req, res, next) => {
 const updateOdontologia =async (req, res, next) => {
     try {
       const { body, params: { id } } = req
+      console.log(id)
       const data = await OdontologiaService.update(id, body)
   
       res.status(200).json({
@@ -92,6 +93,7 @@ const updateOdontologia =async (req, res, next) => {
       })
     } catch (error) {
       next(error)
+      console.log(error)
     }
 }
 

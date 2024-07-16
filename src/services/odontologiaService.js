@@ -5,7 +5,7 @@ const find = async () => {
     return registros
 }
 
-const findOne = async () => {
+const findOne = async (id) => {
     const registro = await models.Odontologia.findByPk(id)
     if (!registro) throw boom.notFound("Odontologia not found");
     return registro

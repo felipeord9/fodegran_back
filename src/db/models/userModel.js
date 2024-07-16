@@ -18,6 +18,10 @@ const UserSchema = {
     type: DataTypes.STRING,
     allowNull: false
   },
+  username:{
+    type: DataTypes.STRING,
+    allowNull: false
+  },
   email: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -33,7 +37,8 @@ const UserSchema = {
     field: 'recovery_token'
   },
   role: {
-    type: DataTypes.ENUM(["auxiliar", "recursos humanos", "contabilidad" , "admin"]),
+    /* type: DataTypes.ENUM(["auxiliar", "recursos humanos", "contabilidad" , "admin" , 'odontologa']), */
+    type: DataTypes.STRING,
     allowNull: false,
     defaultValue: 'auxiliar'
   },

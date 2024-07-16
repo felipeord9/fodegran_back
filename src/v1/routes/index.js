@@ -4,6 +4,7 @@ const MailRoutes = require('./mailRoutes')
 const AuthRoutes = require('./authRoutes')
 const CreditosRoutes = require('./creditosRoutes')
 const OdontologiaRoutes = require('./odontologiaRoutes')
+const FuncionarioRoutes = require('./funcionarioRoutes')
 
 function routerApi(app) {
     const router = express.Router()
@@ -15,7 +16,7 @@ function routerApi(app) {
     router.use('/mail', MailRoutes)
     router.use('/creditos', CreditosRoutes)
     router.use('/odontologia', OdontologiaRoutes)
-
+    router.use('/funcionarios',FuncionarioRoutes)
 }
 
 module.exports = routerApi
