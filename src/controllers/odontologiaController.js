@@ -12,6 +12,7 @@ const findAllOdontologia = async (req, res, next) => {
         data,
       });
     } catch (error) {
+      console.log(error)
       next(error);
     }
 };
@@ -68,6 +69,7 @@ const createOdontologia = async (req, res, next) => {
         fechaBene3:body.datos.fechaBene3,
         parenBene3:body.datos.parenBene3,
         estado: body.estado,
+        cortesia: body.cortesia,
         createdAt: body.createdAt
       })
   
