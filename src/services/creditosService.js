@@ -5,8 +5,18 @@ const find = async () => {
     return creditos
 }
 
-const findOne = async () => {
+const findOne = async (id) => {
     const credito = await models.Creditos.findByPk(id)
+    if (!credito) throw boom.notFound("Credito not found");
+    return credito
+}
+
+const findByCedula = async (cedula) => {
+    const credito = await models.Creditos.findOne({
+        where:{
+            rowId: cedula
+        }
+    })
     if (!credito) throw boom.notFound("Credito not found");
     return credito
 }
@@ -32,6 +42,7 @@ const remove = async(id)=>{
 module.exports = {
     find,
     findOne,
+    findByCedula,
     create,
     update,
     remove,
