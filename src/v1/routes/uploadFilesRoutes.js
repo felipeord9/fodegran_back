@@ -6,7 +6,7 @@ const PDFDocument = require('pdfkit');
 const fsExtra = require('fs-extra');
 const { execSync } = require('child_process');
 const { promisify } = require('util');
-const { convert } = require("pdf-poppler");
+/* const { convert } = require("pdf-poppler"); */
 const { format } = require('date-fns');
 const { PDFDocument: PDFLibDocument } = require('pdf-lib');
 
@@ -221,7 +221,7 @@ router.get('/obtener-archivo/:carpeta/:archivo', (req, res) => {
     res.sendFile(rutaArchivo);
 });
 
-router.get('/pdf/:carpeta/:archivo', async (req, res) => {
+/* router.get('/pdf/:carpeta/:archivo', async (req, res) => {
     const { carpeta, archivo } = req.params;
     const outputDir = "converted"; // Carpeta para guardar imágenes
     const rutaArchivo = path.join('\\\\192.168.4.237\\aplicativoFodegran\\', carpeta, archivo);
@@ -234,7 +234,7 @@ router.get('/pdf/:carpeta/:archivo', async (req, res) => {
     const result = await convert(rutaArchivo, opts);
 
     res.sendFile(result);
-});
+}); */
 
 router.post('/send/comprobante', upload.fields([
     { name: 'comprobantePago' },

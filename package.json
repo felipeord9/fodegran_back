@@ -11,7 +11,7 @@
     "migrations:revert": "sequelize-cli db:migrate:undo"
   },
   "keywords": [],
-  "author": "Jhonatan Castrillón <jhonatancastrillon34@gmail.com>",
+  "author": "Felipe Ordoñez Marin",
   "license": "ISC",
   "dependencies": {
     "@hapi/boom": "10.0.1",
