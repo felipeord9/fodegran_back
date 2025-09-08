@@ -4,7 +4,8 @@ const find = async () => {
     const estudios = await models.EstudioCredito.findAll({
         include:[
             "credito"
-        ]
+        ],
+        order: [["id", "DESC"]],
     })
     return estudios
 }

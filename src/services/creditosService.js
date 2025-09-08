@@ -1,7 +1,9 @@
 const { models } = require("../libs/sequelize");
 
 const find = async () => {
-    const creditos = await models.Creditos.findAll()
+    const creditos = await models.Creditos.findAll({
+        order: [["id", "DESC"]],
+    })
     return creditos
 }
 

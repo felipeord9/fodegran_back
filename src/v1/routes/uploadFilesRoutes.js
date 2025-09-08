@@ -16,12 +16,14 @@ const upload = multer({ dest: 'uploads/' }); // Carpeta para guardar los archivo
 
 router.post('/', upload.fields([
     { name: 'simuladorCredito' },
-    { name: 'relacionCuentas' }
+    { name: 'relacionCuentas' },
+    { name: 'solicitudCredito' },
+    { name: 'libranza' },
 ]),async (req, res) =>{
         
-        const { simuladorCredito, relacionCuentas } = req.files;
+        const { simuladorCredito, relacionCuentas, solicitudCredito, libranza } = req.files;
 
-        if (!simuladorCredito || !relacionCuentas) {
+        if (!simuladorCredito || !relacionCuentas ) {
             return res.status(400).json({ error: 'Ambos archivos son obligatorios.' });
         }
 
@@ -95,7 +97,7 @@ router.post('/', upload.fields([
             try {
                 
                 if (!fs.existsSync(folderPath)) {
-                    fs.mkdirSync(folderPath);
+                    fs.mkdirSync(folderPath, { recursive: true });
                 }
 
                 // Convertir archivos a PDF
@@ -104,6 +106,12 @@ router.post('/', upload.fields([
 
                 const relacionPDF = await convertToPDF(relacionCuentas[0], 'relacion_cuentas_y_terceros.pdf', folderPath);
                 console.log(`relacion guardado: ${relacionPDF}`)
+
+                const solicitudPDF = await convertToPDF(solicitudCredito[0], 'solicitud_credito.pdf', folderPath);
+                console.log(`relacion guardado: ${solicitudPDF}`)
+
+                const libranzaPDF = await convertToPDF(libranza[0], 'libranza.pdf', folderPath);
+                console.log(`relacion guardado: ${libranzaPDF}`)
 
                 // Crear rutas completas para los archivos PDF
                 const simuladorPath = path.join(folderPath, 'simulador_credito.pdf');
